@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { toRefs } from "vue";
+
 import { useRouter } from "vue-router";
 
 export default {

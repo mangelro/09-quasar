@@ -18,5 +18,5 @@ export const linksList = [
     caption: "Community Quasar projects",
     icon: "las la-bookmark",
     link: "https://awesome.quasar.dev",
-  },
+  }
 ];
