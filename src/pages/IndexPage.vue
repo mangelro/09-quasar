@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "index-page",
+  name: 'index-page',
 
   setup() {},
 }

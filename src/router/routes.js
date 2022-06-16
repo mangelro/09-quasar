@@ -25,7 +25,7 @@ const routes = [
       {
         path: "forms",
         name: "forms",
-        component: () => import("pages/Forms.vue"),
+        component: () => import("pages/FormsPage.vue"),
       },
     ],
   },

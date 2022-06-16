@@ -14,14 +14,14 @@
 
     <q-separator></q-separator>
     <p class="text-body-1 q-mt-md">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi
-      architecto eaque quae eveniet, culpa illum non, autem veritatis rem iste
-      in itaque aperiam accusantium soluta quam quibusdam hic. Dicta?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi architecto eaque quae
+      eveniet, culpa illum non, autem veritatis rem iste in itaque aperiam accusantium soluta quam
+      quibusdam hic. Dicta?
     </p>
     <p class="text-body-2">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi
-      architecto eaque quae eveniet, culpa illum non, autem veritatis rem iste
-      in itaque aperiam accusantium soluta quam quibusdam hic. Dicta?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nisi architecto eaque quae
+      eveniet, culpa illum non, autem veritatis rem iste in itaque aperiam accusantium soluta quam
+      quibusdam hic. Dicta?
     </p>
     <q-separator></q-separator>
 
@@ -32,61 +32,53 @@
       class="q-mt-md"
       :loading="loading"
       :percentage="percentage"
-      @click="toggleSideMenu">
-
+      @click="toggleSideMenu"
+    >
       <template v-slot:loading>
         <q-spinner-gears class="on-left"></q-spinner-gears>
         Computing...
       </template>
-      
-      </q-btn>
+    </q-btn>
   </q-page>
 </template>
 
 <script>
-import { useDrawer } from "../composables/useDrawer";
-import { computed, watch  } from "vue";
-import { ref } from "vue";
-
-
+import { useDrawer } from '../composables/useDrawer'
+import { computed, watch } from 'vue'
+import { ref } from 'vue'
 
 export default {
-  name: "typography-page",
+  name: 'typography-page',
 
   setup() {
-    const percentage=ref(0)
-    const interval=setInterval(() => {
+    const percentage = ref(0)
+    const interval = setInterval(() => {
       percentage.value += 10
-    }, 700);
+    }, 700)
 
+    const loading = ref(false)
 
-    const loading=ref(false)
- 
     setTimeout(() => {
-      loading.value=true
-    }, 1500);
+      loading.value = true
+    }, 1500)
 
-
-    const fin= watch(percentage,(newValue)=> {
-
-        if (newValue>=100){
-          loading.value=false 
-          clearInterval(interval)
-        }
-
+    const fin = watch(percentage, (newValue) => {
+      if (newValue >= 100) {
+        loading.value = false
+        clearInterval(interval)
+      }
     })
 
-
-    const { sideMenuOpen, toggleSideMenu } = useDrawer();
-
-
+    const { sideMenuOpen, toggleSideMenu } = useDrawer()
 
     return {
       loading,
       percentage,
       toggleSideMenu,
-      buttonLabel: computed(() =>sideMenuOpen.value ? "Cerrar menú lateral" : "Abrir menú lateral"),
-    };
+      buttonLabel: computed(() =>
+        sideMenuOpen.value ? 'Cerrar menú lateral' : 'Abrir menú lateral',
+      ),
+    }
   },
-};
+}
 </script>
